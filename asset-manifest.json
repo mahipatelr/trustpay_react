@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/trustpay_react/static/css/main.1f274b72.css",
+    "main.js": "/trustpay_react/static/js/main.f1e3eeb1.js",
+    "static/media/banner.png": "/trustpay_react/static/media/banner.02323d8fd4c611387b75.png",
+    "static/media/hero.png": "/trustpay_react/static/media/hero.e2c8932f236e1b700558.png",
+    "static/media/donut.png": "/trustpay_react/static/media/donut.9becda9e9da4073d77d4.png",
+    "static/media/wallet-graph.png": "/trustpay_react/static/media/wallet-graph.b1ea8d5cc7eab374091c.png",
+    "static/media/feature1.png": "/trustpay_react/static/media/feature1.e4e5aef92a5530fcec8d.png",
+    "static/media/feature4.png": "/trustpay_react/static/media/feature4.6dedb89b9115e23f27d4.png",
+    "static/media/feature3.png": "/trustpay_react/static/media/feature3.635f4929aeb3f7211a24.png",
+    "static/media/feature2.png": "/trustpay_react/static/media/feature2.f071f0d19ea6a3d17283.png",
+    "static/media/budgeting.png": "/trustpay_react/static/media/budgeting.3e36a3920cd97ff3d964.png",
+    "static/media/transaction.png": "/trustpay_react/static/media/transaction.b5171f90a12517d7e94f.png",
+    "static/media/getting-started.png": "/trustpay_react/static/media/getting-started.45c1122fff301a87ad9f.png",
+    "static/media/badge-beginner.png": "/trustpay_react/static/media/badge-beginner.482a9d019f524d152e03.png",
+    "static/media/badge-intermediate.png": "/trustpay_react/static/media/badge-intermediate.8b1e83d9042ab57bfa67.png",
+    "static/media/logo.png": "/trustpay_react/static/media/logo.4c34bb44547544cf0199.png",
+    "index.html": "/trustpay_react/index.html",
+    "main.1f274b72.css.map": "/trustpay_react/static/css/main.1f274b72.css.map",
+    "main.f1e3eeb1.js.map": "/trustpay_react/static/js/main.f1e3eeb1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f274b72.css",
+    "static/js/main.f1e3eeb1.js"
+  ]
+}
