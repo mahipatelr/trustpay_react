@@ -1,0 +1,87 @@
+.transactions-hero {
+  padding: 70px 0 80px;
+  background: #0b2748;
+}
+
+.transactions-title {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.transactions-sub {
+  color: #6fc3ff;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.transactions-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: min(1200px, calc(100% - 48px));
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.transactions-table thead th {
+  text-align: left;
+  padding: 20px 12px;
+  font-weight: 800;
+  color: #c7d4ea;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transactions-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease;
+}
+
+.transactions-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.transactions-table td {
+  padding: 24px 12px;
+  color: #ffffff;
+}
+
+.amount {
+  text-align: right;
+  font-weight: 800;
+}
+
+.negative {
+  color: #ff9aa2;
+}
+
+.positive {
+  color: #8ff2a6;
+}
+
+@media (max-width: 640px) {
+  .transactions-title {
+    font-size: 28px;
+  }
+
+  .transactions-sub {
+    font-size: 15px;
+  }
+
+  .transactions-wrapper {
+    width: calc(100% - 32px);
+  }
+
+  .transactions-table {
+    font-size: 14px;
+  }
+
+  .transactions-table td {
+    padding: 16px 8px;
+  }
+}
+
