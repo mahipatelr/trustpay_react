@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/trustpay_react/static/css/main.1f274b72.css",
-    "main.js": "/trustpay_react/static/js/main.cc1d2d25.js",
+    "main.css": "/trustpay_react/static/css/main.205e8b82.css",
+    "main.js": "/trustpay_react/static/js/main.1d64496f.js",
     "static/media/banner.png": "/trustpay_react/static/media/banner.02323d8fd4c611387b75.png",
     "static/media/hero.png": "/trustpay_react/static/media/hero.e2c8932f236e1b700558.png",
     "static/media/donut.png": "/trustpay_react/static/media/donut.9becda9e9da4073d77d4.png",
@@ -17,11 +17,11 @@
     "static/media/badge-intermediate.png": "/trustpay_react/static/media/badge-intermediate.8b1e83d9042ab57bfa67.png",
     "static/media/logo.png": "/trustpay_react/static/media/logo.4c34bb44547544cf0199.png",
     "index.html": "/trustpay_react/index.html",
-    "main.1f274b72.css.map": "/trustpay_react/static/css/main.1f274b72.css.map",
-    "main.cc1d2d25.js.map": "/trustpay_react/static/js/main.cc1d2d25.js.map"
+    "main.205e8b82.css.map": "/trustpay_react/static/css/main.205e8b82.css.map",
+    "main.1d64496f.js.map": "/trustpay_react/static/js/main.1d64496f.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f274b72.css",
-    "static/js/main.cc1d2d25.js"
+    "static/css/main.205e8b82.css",
+    "static/js/main.1d64496f.js"
   ]
 }
