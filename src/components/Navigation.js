@@ -1,34 +1,68 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../css/Navigation.css";
 
 const Navigation = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <nav id="nav-links">
-      <NavLink to="/" end className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
-        Home
-      </NavLink>
+      <button
+        type="button"
+        className="menu-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((prev) => !prev)}
+      >
+        ☰
+      </button>
 
-      <NavLink to="/wallet" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
-        Wallet
-      </NavLink>
+      <div className={`nav-menu ${menuOpen ? "open" : ""}`}>
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
+          onClick={closeMenu}
+        >
+          Home
+        </NavLink>
 
-      <NavLink to="/transactions" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
-        Transactions
-      </NavLink>
+        <NavLink
+          to="/wallet"
+          className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
+          onClick={closeMenu}
+        >
+          Wallet
+        </NavLink>
 
-      <NavLink to="/learn" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
-        Learn
-      </NavLink>
+        <NavLink
+          to="/transactions"
+          className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
+          onClick={closeMenu}
+        >
+          Transactions
+        </NavLink>
 
-      <NavLink to="/support" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
-        Support
-      </NavLink>
+        <NavLink
+          to="/learn"
+          className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
+          onClick={closeMenu}
+        >
+          Learn
+        </NavLink>
+
+        <NavLink
+          to="/support"
+          className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}
+          onClick={closeMenu}
+        >
+          Support
+        </NavLink>
+      </div>
     </nav>
   );
 };
 
 export default Navigation;
-
-
-
-

@@ -254,11 +254,9 @@
 }
 
 .chat-cta {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 90px;
-  z-index: 220;
+  display: block;
+  width: fit-content;
+  margin: 28px auto 0;
   background: linear-gradient(90deg, #2b8bff, #4da3ff);
   color: #fff;
   padding: 14px 38px;
@@ -266,6 +264,9 @@
   font-weight: 900;
   box-shadow: 0 10px 36px rgba(43, 139, 255, 0.18);
   text-decoration: none;
+  position: static;
+  transform: none;
+  z-index: auto;
 }
 
 .iframe-wrap {
@@ -327,8 +328,4 @@
     gap: 20px;
   }
 
-  .chat-cta {
-    bottom: 100px;
-  }
 }
-

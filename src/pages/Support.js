@@ -84,17 +84,15 @@ const Support = () => {
             </a>
           </div>
 
-          <ContactForm />
+          <div id="contact">
+            <ContactForm />
+          </div>
           <SupportVideo />
         </div>
       </section>
 
-      <a className="chat-cta" href="#" role="button" aria-label="Chat with us">
-        Chat with us!
-      </a>
     </main>
   );
 };
 
 export default Support;
-
