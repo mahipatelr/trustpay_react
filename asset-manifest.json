@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/trustpay_react/static/css/main.8e72af5a.css",
+    "main.css": "/trustpay_react/static/css/main.883c7c52.css",
     "main.js": "/trustpay_react/static/js/main.abaa0304.js",
     "static/media/banner.png": "/trustpay_react/static/media/banner.02323d8fd4c611387b75.png",
     "static/media/hero.png": "/trustpay_react/static/media/hero.e2c8932f236e1b700558.png",
@@ -17,11 +17,11 @@
     "static/media/badge-intermediate.png": "/trustpay_react/static/media/badge-intermediate.8b1e83d9042ab57bfa67.png",
     "static/media/logo.png": "/trustpay_react/static/media/logo.4c34bb44547544cf0199.png",
     "index.html": "/trustpay_react/index.html",
-    "main.8e72af5a.css.map": "/trustpay_react/static/css/main.8e72af5a.css.map",
+    "main.883c7c52.css.map": "/trustpay_react/static/css/main.883c7c52.css.map",
     "main.abaa0304.js.map": "/trustpay_react/static/js/main.abaa0304.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e72af5a.css",
+    "static/css/main.883c7c52.css",
     "static/js/main.abaa0304.js"
   ]
 }
