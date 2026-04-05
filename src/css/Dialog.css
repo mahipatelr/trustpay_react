@@ -1,0 +1,18 @@
+#transaction-dialog {
+  display: block;
+}
+
+.w3-modal-content {
+  margin-top: 100px;
+  max-width: 400px;
+}
+
+#transaction-dialog-content {
+  padding: 20px;
+  color: black;
+}
+
+#dialog-close {
+  font-size: 24px;
+  cursor: pointer;
+}
