@@ -1,18 +1,124 @@
 #transaction-dialog {
   display: block;
+  z-index: 9999;
 }
 
-.w3-modal-content {
-  margin-top: 100px;
-  max-width: 400px;
+.transaction-modal-card {
+  max-width: 480px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+  animation: modalPop 0.18s ease-out;
+}
+
+.transaction-modal-body {
+  position: relative;
+  padding: 28px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.transaction-modal-top {
+  margin-bottom: 22px;
+  padding-right: 40px;
+}
+
+.transaction-modal-label {
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.transaction-modal-title {
+  margin: 0;
+  font-size: 1.65rem;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.transaction-modal-close {
+  top: 14px;
+  right: 14px;
+  border-radius: 999px;
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  padding: 0 !important;
+  font-size: 1.5rem;
+}
+
+.transaction-modal-close:hover {
+  background: #cbd5e1 !important;
 }
 
 #transaction-dialog-content {
-  padding: 20px;
-  color: black;
+  display: grid;
+  gap: 12px;
 }
 
-#dialog-close {
-  font-size: 24px;
-  cursor: pointer;
+.transaction-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.transaction-detail-row span {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.transaction-detail-row strong {
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.transaction-detail-row .positive {
+  color: #16a34a;
+}
+
+.transaction-detail-row .negative {
+  color: #dc2626;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 520px) {
+  .transaction-modal-card {
+    max-width: calc(100vw - 24px);
+    margin: 12px;
+  }
+
+  .transaction-modal-body {
+    padding: 20px;
+  }
+
+  .transaction-modal-title {
+    font-size: 1.35rem;
+  }
+
+  .transaction-detail-row {
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 }

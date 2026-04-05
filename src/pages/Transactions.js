@@ -13,45 +13,48 @@ const Transactions = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const handleClick = (t) => {
-    setSelectedTransaction(t);
+  const handleClick = (transaction) => {
+    setSelectedTransaction(transaction);
   };
 
   return (
-    <main>
+    <main className="transactions-page">
       <section className="transactions-hero">
         <div className="transactions-wrapper">
-          <h1 className="transactions-title">Transactions Overview</h1>
-          <p className="transactions-sub">
-            Simulated transactions used for demo and learning
-          </p>
+          <div className="transactions-header">
+            <h1 className="transactions-title">Transactions Overview</h1>
+            <p className="transactions-sub">
+              Simulated transactions used for demo and learning
+            </p>
+          </div>
 
-          <table className="transactions-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Merchant</th>
-                <th>Category</th>
-                <th className="amount">Amount</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {transactions.map((t) => (
-                <tr key={t._id} onClick={() => handleClick(t)}>
-                  <td>{t.date}</td>
-                  <td>{t.merchant}</td>
-                  <td>{t.category}</td>
-                  <td className={t.amount > 0 ? "positive" : "negative"}>
-                    {(t.amount > 0 ? "+" : "") +
-                      "$" +
-                      Math.abs(t.amount).toFixed(2)}
-                  </td>
+          <div className="transactions-table-shell">
+            <table className="transactions-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Merchant</th>
+                  <th>Category</th>
+                  <th className="amount">Amount</th>
                 </tr>
-              ))}
-            </tbody>
+              </thead>
 
-          </table>
+              <tbody>
+                {transactions.map((t) => (
+                  <tr key={t._id} onClick={() => handleClick(t)}>
+                    <td>{t.date}</td>
+                    <td>{t.merchant}</td>
+                    <td>{t.category}</td>
+                    <td className={t.amount > 0 ? "positive" : "negative"}>
+                      {(t.amount > 0 ? "+" : "") +
+                        "$" +
+                        Math.abs(t.amount).toFixed(2)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -66,4 +69,3 @@ const Transactions = () => {
 };
 
 export default Transactions;
-
