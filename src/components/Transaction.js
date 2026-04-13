@@ -3,21 +3,20 @@ import "../css/Transactions.css";
 import TransactionDetailsDialog from "../components/TransactionDetailsDialog";
 import TransactionForm from "../components/TransactionForm";
 
-const getDateKey = (dateString) => {
-  const match = String(dateString).trim().match(/^(\d{1,2})\/(\d{1,2})$/);
+const getDateValue = (dateString) => {
+  const cleaned = String(dateString).trim();
+  const match = cleaned.match(/^(\d{1,2})\/(\d{1,2})$/);
+
   if (!match) return 0;
 
   const month = String(match[1]).padStart(2, "0");
   const day = String(match[2]).padStart(2, "0");
+
   return Number(`${month}${day}`);
 };
 
 const sortByDateDesc = (transactions) => {
-  return [...transactions].sort((a, b) => {
-    const aKey = a.dateKey ?? getDateKey(a.date);
-    const bKey = b.dateKey ?? getDateKey(b.date);
-    return bKey - aKey;
-  });
+  return [...transactions].sort((a, b) => getDateValue(b.date) - getDateValue(a.date));
 };
 
 const Transactions = () => {

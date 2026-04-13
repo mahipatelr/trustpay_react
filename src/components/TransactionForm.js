@@ -7,15 +7,6 @@ const TransactionForm = ({ onAddTransaction, setSuccessMessage }) => {
   const [amount, setAmount] = useState("");
   const [errors, setErrors] = useState({});
 
-  const getDateKey = (dateString) => {
-    const match = String(dateString).trim().match(/^(\d{1,2})\/(\d{1,2})$/);
-    if (!match) return 0;
-
-    const month = String(match[1]).padStart(2, "0");
-    const day = String(match[2]).padStart(2, "0");
-    return Number(`${month}${day}`);
-  };
-
   const validateForm = () => {
     const newErrors = {};
 
@@ -33,8 +24,6 @@ const TransactionForm = ({ onAddTransaction, setSuccessMessage }) => {
 
     if (!validateForm()) return;
 
-    const dateKey = getDateKey(date);
-
     try {
       const response = await fetch("https://demo-backend-1-bo10.onrender.com/api/transactions", {
         method: "POST",
@@ -42,10 +31,9 @@ const TransactionForm = ({ onAddTransaction, setSuccessMessage }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          date,
-          dateKey, // ✅ THIS FIXES YOUR ERROR
-          merchant,
-          category,
+          date: date.trim(),
+          merchant: merchant.trim(),
+          category: category.trim(),
           amount: Number(amount),
         }),
       });
@@ -58,7 +46,6 @@ const TransactionForm = ({ onAddTransaction, setSuccessMessage }) => {
       const newTransaction = await response.json();
       onAddTransaction(newTransaction);
       setSuccessMessage("Transaction added successfully!");
-
       setDate("");
       setMerchant("");
       setCategory("");
@@ -79,26 +66,50 @@ const TransactionForm = ({ onAddTransaction, setSuccessMessage }) => {
 
       <div className="form-grid">
         <div className="form-field">
-          <label>Date</label>
-          <input value={date} onChange={(e) => setDate(e.target.value)} placeholder="04/25" />
+          <label htmlFor="date">Date</label>
+          <input
+            id="date"
+            type="text"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            placeholder="04/25"
+          />
           {errors.date && <p className="form-error">{errors.date}</p>}
         </div>
 
         <div className="form-field">
-          <label>Merchant</label>
-          <input value={merchant} onChange={(e) => setMerchant(e.target.value)} />
+          <label htmlFor="merchant">Merchant</label>
+          <input
+            id="merchant"
+            type="text"
+            value={merchant}
+            onChange={(e) => setMerchant(e.target.value)}
+            placeholder="Coffee Shop"
+          />
           {errors.merchant && <p className="form-error">{errors.merchant}</p>}
         </div>
 
         <div className="form-field">
-          <label>Category</label>
-          <input value={category} onChange={(e) => setCategory(e.target.value)} />
+          <label htmlFor="category">Category</label>
+          <input
+            id="category"
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            placeholder="Food"
+          />
           {errors.category && <p className="form-error">{errors.category}</p>}
         </div>
 
         <div className="form-field">
-          <label>Amount</label>
-          <input value={amount} onChange={(e) => setAmount(e.target.value)} />
+          <label htmlFor="amount">Amount</label>
+          <input
+            id="amount"
+            type="text"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="-12.50"
+          />
           {errors.amount && <p className="form-error">{errors.amount}</p>}
         </div>
       </div>
