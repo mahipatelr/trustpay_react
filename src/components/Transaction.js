@@ -3,15 +3,19 @@ import "../css/Transactions.css";
 import TransactionDetailsDialog from "../components/TransactionDetailsDialog";
 import TransactionForm from "../components/TransactionForm";
 
-const parseTransactionDate = (dateString) => {
-  const [month, day] = dateString.split("/").map((part) => Number(part.trim()));
-  return new Date(2026, month - 1, day).getTime();
+const getDateValue = (dateString) => {
+  const match = String(dateString).match(/^(\d{1,2})\/(\d{1,2})$/);
+
+  if (!match) return 0;
+
+  const month = Number(match[1]);
+  const day = Number(match[2]);
+
+  return month * 100 + day;
 };
 
 const sortByDateDesc = (transactions) => {
-  return [...transactions].sort(
-    (a, b) => parseTransactionDate(b.date) - parseTransactionDate(a.date)
-  );
+  return [...transactions].sort((a, b) => getDateValue(b.date) - getDateValue(a.date));
 };
 
 const Transactions = () => {
