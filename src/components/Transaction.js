@@ -3,19 +3,21 @@ import "../css/Transactions.css";
 import TransactionDetailsDialog from "../components/TransactionDetailsDialog";
 import TransactionForm from "../components/TransactionForm";
 
-const getDateValue = (dateString) => {
-  const match = String(dateString).match(/^(\d{1,2})\/(\d{1,2})$/);
-
+const getDateKey = (dateString) => {
+  const match = String(dateString).trim().match(/^(\d{1,2})\/(\d{1,2})$/);
   if (!match) return 0;
 
-  const month = Number(match[1]);
-  const day = Number(match[2]);
-
-  return month * 100 + day;
+  const month = String(match[1]).padStart(2, "0");
+  const day = String(match[2]).padStart(2, "0");
+  return Number(`${month}${day}`);
 };
 
 const sortByDateDesc = (transactions) => {
-  return [...transactions].sort((a, b) => getDateValue(b.date) - getDateValue(a.date));
+  return [...transactions].sort((a, b) => {
+    const aKey = a.dateKey ?? getDateKey(a.date);
+    const bKey = b.dateKey ?? getDateKey(b.date);
+    return bKey - aKey;
+  });
 };
 
 const Transactions = () => {
@@ -70,7 +72,7 @@ const Transactions = () => {
               </thead>
 
               <tbody>
-                {transactions.map((t) => (
+                {sortByDateDesc(transactions).map((t) => (
                   <tr key={t._id} onClick={() => handleClick(t)}>
                     <td>{t.date}</td>
                     <td>{t.merchant}</td>

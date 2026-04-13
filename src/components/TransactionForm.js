@@ -7,6 +7,15 @@ const TransactionForm = ({ onAddTransaction, setSuccessMessage }) => {
   const [amount, setAmount] = useState("");
   const [errors, setErrors] = useState({});
 
+  const getDateKey = (dateString) => {
+    const match = String(dateString).trim().match(/^(\d{1,2})\/(\d{1,2})$/);
+    if (!match) return 0;
+
+    const month = String(match[1]).padStart(2, "0");
+    const day = String(match[2]).padStart(2, "0");
+    return Number(`${month}${day}`);
+  };
+
   const validateForm = () => {
     const newErrors = {};
 
@@ -35,6 +44,7 @@ const TransactionForm = ({ onAddTransaction, setSuccessMessage }) => {
           merchant,
           category,
           amount: Number(amount),
+          dateKey: getDateKey(date),
         }),
       });
 
