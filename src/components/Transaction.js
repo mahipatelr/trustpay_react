@@ -3,6 +3,16 @@ import "../css/Transactions.css";
 import TransactionDetailsDialog from "../components/TransactionDetailsDialog";
 import TransactionForm from "../components/TransactionForm";
 
+const sortByDateDesc = (transactions) => {
+  return [...transactions].sort((a, b) => {
+    const [monthA, dayA] = a.date.split("/").map(Number);
+    const [monthB, dayB] = b.date.split("/").map(Number);
+
+    if (monthA !== monthB) return monthB - monthA;
+    return dayB - dayA;
+  });
+};
+
 const Transactions = () => {
   const [transactions, setTransactions] = useState([]);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
@@ -11,12 +21,14 @@ const Transactions = () => {
   useEffect(() => {
     fetch("https://demo-backend-1-bo10.onrender.com/api/transactions")
       .then((res) => res.json())
-      .then((data) => setTransactions(data))
+      .then((data) => setTransactions(sortByDateDesc(data)))
       .catch((err) => console.error(err));
   }, []);
 
   const handleAddTransaction = (newTransaction) => {
-    setTransactions((prevTransactions) => [...prevTransactions, newTransaction]);
+    setTransactions((prevTransactions) =>
+      sortByDateDesc([...prevTransactions, newTransaction])
+    );
   };
 
   const handleClick = (transaction) => {
