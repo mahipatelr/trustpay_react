@@ -3,14 +3,15 @@ import "../css/Transactions.css";
 import TransactionDetailsDialog from "../components/TransactionDetailsDialog";
 import TransactionForm from "../components/TransactionForm";
 
-const sortByDateDesc = (transactions) => {
-  return [...transactions].sort((a, b) => {
-    const [monthA, dayA] = a.date.split("/").map(Number);
-    const [monthB, dayB] = b.date.split("/").map(Number);
+const parseTransactionDate = (dateString) => {
+  const [month, day] = dateString.split("/").map((part) => Number(part.trim()));
+  return new Date(2026, month - 1, day).getTime();
+};
 
-    if (monthA !== monthB) return monthB - monthA;
-    return dayB - dayA;
-  });
+const sortByDateDesc = (transactions) => {
+  return [...transactions].sort(
+    (a, b) => parseTransactionDate(b.date) - parseTransactionDate(a.date)
+  );
 };
 
 const Transactions = () => {
