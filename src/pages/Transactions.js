@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "../css/Transactions.css";
 import TransactionDetailsDialog from "../components/TransactionDetailsDialog";
+import TransactionForm from "../components/TransactionForm";
 
 const Transactions = () => {
   const [transactions, setTransactions] = useState([]);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     fetch("https://demo-backend-1-bo10.onrender.com/api/transactions")
@@ -12,6 +14,10 @@ const Transactions = () => {
       .then((data) => setTransactions(data))
       .catch((err) => console.error(err));
   }, []);
+
+  const handleAddTransaction = (newTransaction) => {
+    setTransactions((prevTransactions) => [...prevTransactions, newTransaction]);
+  };
 
   const handleClick = (transaction) => {
     setSelectedTransaction(transaction);
@@ -27,6 +33,13 @@ const Transactions = () => {
               Simulated transactions used for demo and learning
             </p>
           </div>
+
+          <TransactionForm
+            onAddTransaction={handleAddTransaction}
+            setSuccessMessage={setSuccessMessage}
+          />
+
+          {successMessage && <p className="success-message">{successMessage}</p>}
 
           <div className="transactions-table-shell">
             <table className="transactions-table">
